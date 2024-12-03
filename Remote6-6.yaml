@@ -3,8 +3,8 @@ blueprint:
   description: Blueprint for a 6-button remote with configurable actions for short press, long press, and double press.
   domain: automation
   input:
-    remote_device:
-      name: Remote Device
+    remote_device_id:
+      name: Remote Device ID
       description: Select the remote control device.
       selector:
         device:
@@ -119,114 +119,155 @@ blueprint:
       default: []
 
 trigger:
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_short_press
-    subtype: button_1
+  # Button 1
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_short_press
     id: button_1_short
-    trigger: device
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_long_press
-    subtype: button_1
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_long_press
     id: button_1_long
-    trigger: device
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_double_press
-    subtype: button_1
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_double_press
     id: button_1_double
-    trigger: device
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_short_press
-    subtype: button_2
+
+  # Button 2
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_short_press
+      args:
+        - 2
     id: button_2_short
-    trigger: device
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_long_press
-    subtype: button_2
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_long_press
+      args:
+        - 2
     id: button_2_long
-    trigger: device
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_double_press
-    subtype: button_2
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_double_press
+      args:
+        - 2
     id: button_2_double
-    trigger: device
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_short_press
-    subtype: button_3
+
+  # Button 3
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_short_press
+      args:
+        - 3
     id: button_3_short
-    trigger: device
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_long_press
-    subtype: button_3
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_long_press
+      args:
+        - 3
     id: button_3_long
-    trigger: device
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_double_press
-    subtype: button_3
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_double_press
+      args:
+        - 3
     id: button_3_double
-    trigger: device
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_short_press
-    subtype: button_4
+
+  # Button 4
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_short_press
+      args:
+        - 4
     id: button_4_short
-    trigger: device
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_long_press
-    subtype: button_4
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_long_press
+      args:
+        - 4
     id: button_4_long
-    trigger: device
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_double_press
-    subtype: button_4
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_double_press
+      args:
+        - 4
     id: button_4_double
-    trigger: device
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_short_press
-    subtype: button_5
+
+  # Button 5
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_short_press
+      args:
+        - 5
     id: button_5_short
-    trigger: device
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_long_press
-    subtype: button_5
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_long_press
+      args:
+        - 5
     id: button_5_long
-    trigger: device
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_double_press
-    subtype: button_5
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_double_press
+      args:
+        - 5
     id: button_5_double
-    trigger: device
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_short_press
-    subtype: button_6
+
+  # Button 6
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_short_press
+      args:
+        - 6
     id: button_6_short
-    trigger: device
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_long_press
-    subtype: button_6
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_long_press
+      args:
+        - 6
     id: button_6_long
-    trigger: device
-  - device_id: !input remote_device
-    domain: zha
-    type: remote_button_double_press
-    subtype: button_6
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: remote_button_double_press
+      args:
+        - 6
     id: button_6_double
-    trigger: device
 
 action:
   - choose:
