@@ -3,6 +3,12 @@ blueprint:
   description: Blueprint for a 6-button remote with configurable actions for short press, long press, and double press.
   domain: automation
   input:
+    remote_device:
+      name: Remote Device
+      description: Select the remote control device.
+      selector:
+        device:
+          integration: zha
     button_1_short:
       name: Button 1 Short Press Action
       description: Action to run when Button 1 is short-pressed.
