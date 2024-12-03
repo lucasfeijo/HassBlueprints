@@ -280,4 +280,25 @@ action:
         sequence: !input button_4_double
       - conditions:
           - condition: trigger
-            id: button_5
+            id: button_5_short
+        sequence: !input button_5_short
+      - conditions:
+          - condition: trigger
+            id: button_5_long
+        sequence: !input button_5_long
+      - conditions:
+          - condition: trigger
+            id: button_5_double
+        sequence: !input button_5_double
+      - conditions:
+          - condition: trigger
+            id: button_6_short
+        sequence: !input button_6_short
+      - conditions:
+          - condition: trigger
+            id: button_6_long
+        sequence: !input button_6_long
+      - conditions:
+          - condition: trigger
+            id: button_6_double
+        sequence: !input button_6_double
