@@ -1,5 +1,5 @@
 blueprint:
-  name: Configurable Remote Control
+  name: Six Button ZigBee Remote
   description: Blueprint for a 6-button remote with configurable actions for short press, long press, and double press.
   domain: automation
   input:
@@ -119,154 +119,185 @@ blueprint:
       default: []
 
 trigger:
-  # Button 1
+  # Button 1 Short Press
   - platform: event
     event_type: zha_event
     event_data:
       device_id: !input remote_device_id
-      command: remote_button_short_press
+      command: press_type
+      endpoint_id: 1
+      args:
+        - 0
     id: button_1_short
+  # Button 1 Long Press
   - platform: event
     event_type: zha_event
     event_data:
       device_id: !input remote_device_id
-      command: remote_button_long_press
-    id: button_1_long
-  - platform: event
-    event_type: zha_event
-    event_data:
-      device_id: !input remote_device_id
-      command: remote_button_double_press
-    id: button_1_double
-
-  # Button 2
-  - platform: event
-    event_type: zha_event
-    event_data:
-      device_id: !input remote_device_id
-      command: remote_button_short_press
+      command: press_type
+      endpoint_id: 1
       args:
         - 2
-    id: button_2_short
+    id: button_1_long
+  # Button 1 Double Press
   - platform: event
     event_type: zha_event
     event_data:
       device_id: !input remote_device_id
-      command: remote_button_long_press
+      command: press_type
+      endpoint_id: 1
+      args:
+        - 1
+    id: button_1_double
+  # Button 2 Short Press
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: press_type
+      endpoint_id: 2
+      args:
+        - 0
+    id: button_2_short
+  # Button 2 Long Press
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: press_type
+      endpoint_id: 2
       args:
         - 2
     id: button_2_long
+  # Button 2 Double Press
   - platform: event
     event_type: zha_event
     event_data:
       device_id: !input remote_device_id
-      command: remote_button_double_press
+      command: press_type
+      endpoint_id: 2
+      args:
+        - 1
+    id: button_2_double
+  # Button 3 Short Press
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: press_type
+      endpoint_id: 3
+      args:
+        - 0
+    id: button_3_short
+  # Button 3 Long Press
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: !input remote_device_id
+      command: press_type
+      endpoint_id: 3
       args:
         - 2
-    id: button_2_double
-
-  # Button 3
-  - platform: event
-    event_type: zha_event
-    event_data:
-      device_id: !input remote_device_id
-      command: remote_button_short_press
-      args:
-        - 3
-    id: button_3_short
-  - platform: event
-    event_type: zha_event
-    event_data:
-      device_id: !input remote_device_id
-      command: remote_button_long_press
-      args:
-        - 3
     id: button_3_long
+  # Button 3 Double Press
   - platform: event
     event_type: zha_event
     event_data:
       device_id: !input remote_device_id
-      command: remote_button_double_press
+      command: press_type
+      endpoint_id: 3
       args:
-        - 3
+        - 1
     id: button_3_double
-
-  # Button 4
+  # Button 4 Short Press
   - platform: event
     event_type: zha_event
     event_data:
       device_id: !input remote_device_id
-      command: remote_button_short_press
+      command: press_type
+      endpoint_id: 4
       args:
-        - 4
+        - 0
     id: button_4_short
+  # Button 4 Long Press
   - platform: event
     event_type: zha_event
     event_data:
       device_id: !input remote_device_id
-      command: remote_button_long_press
+      command: press_type
+      endpoint_id: 4
       args:
-        - 4
+        - 2
     id: button_4_long
+  # Button 4 Double Press
   - platform: event
     event_type: zha_event
     event_data:
       device_id: !input remote_device_id
-      command: remote_button_double_press
+      command: press_type
+      endpoint_id: 4
       args:
-        - 4
+        - 1
     id: button_4_double
-
-  # Button 5
+  # Button 5 Short Press
   - platform: event
     event_type: zha_event
     event_data:
       device_id: !input remote_device_id
-      command: remote_button_short_press
+      command: press_type
+      endpoint_id: 5
       args:
-        - 5
+        - 0
     id: button_5_short
+  # Button 5 Long Press
   - platform: event
     event_type: zha_event
     event_data:
       device_id: !input remote_device_id
-      command: remote_button_long_press
+      command: press_type
+      endpoint_id: 5
       args:
-        - 5
+        - 2
     id: button_5_long
+  # Button 5 Double Press
   - platform: event
     event_type: zha_event
     event_data:
       device_id: !input remote_device_id
-      command: remote_button_double_press
+      command: press_type
+      endpoint_id: 5
       args:
-        - 5
+        - 1
     id: button_5_double
-
-  # Button 6
+  # Button 6 Short Press
   - platform: event
     event_type: zha_event
     event_data:
       device_id: !input remote_device_id
-      command: remote_button_short_press
+      command: press_type
+      endpoint_id: 6
       args:
-        - 6
+        - 0
     id: button_6_short
+  # Button 6 Long Press
   - platform: event
     event_type: zha_event
     event_data:
       device_id: !input remote_device_id
-      command: remote_button_long_press
+      command: press_type
+      endpoint_id: 6
       args:
-        - 6
+        - 2
     id: button_6_long
+  # Button 6 Double Press
   - platform: event
     event_type: zha_event
     event_data:
       device_id: !input remote_device_id
-      command: remote_button_double_press
+      command: press_type
+      endpoint_id: 6
       args:
-        - 6
+        - 1
     id: button_6_double
 
 action:
